@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Commit</title>
+   <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+   <div id="page">
+      <div class="banner">
+         <img src="img/logo.svg" alt="" class="logo">
+         <div class="slogan">
+            <img src="img/commit.svg" alt="">
+         </div>
+      </div>
+      <div class="commit">
+         <p>Please selected max. 3 key words as your commitment to GP 2020+.</p>
+         <ul id="list">
+            <li></li>
+         </ul>
+         <button class="submit" type="button">Submit</button>
+      </div>
+   </div>
+   <div class="alert alert1">
+      <div class="inner">
+         <p>Will open soon</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <div class="alert alert2">
+      <div class="inner">
+         <p>Please selected max. 3 key words.</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script>
+      var userInfo = JSON.parse(LS.getItem('userInfo'));
+      var phrases = userInfo.phrases || [];
+      var userId = userInfo.id;
+      if(phrases.length>0){
+         $('button.submit').remove();
+      }
+      var list = [
+         'Vision 2020+',
+         'Raising The Bar',
+         'Adaptability',
+         'Innovation & Digitalization',
+         'Go Global',
+         'Localization & Partnership',
+         'Focus',
+         'Delight Our Customers',
+         'Fight for Growth and Win',
+         'Simplify',
+         'Accountability',
+         'Safety First',
+         'Ownership Culture',
+         'Collaboration'
+      ];
+      var str = '';
+      for(var i=0;i<list.length;i++){
+         var item = list[i];
+         if(phrases.length>0){
+            str += '<li><label><span>' + item + '</span><input type="checkbox" value="' + item + '" disabled/><i></i></label></li>';
+         } else {
+            str += '<li><label><span>' + item + '</span><input type="checkbox" value="' + item + '"/><i></i></label></li>'
+         }
+      }
+      var target = document.getElementById('list');
+      target.innerHTML = str;
+      for(var i=0;i<phrases.length;i++){
+         $('input[value="'+ phrases[i] +'"]').prop('checked', true);
+      }
+      var phrasesArr = phrases;
+      $(document).on('change', '#list input', function () {
+         var val = $(this).val();
+         var checked = $(this).prop('checked');
+         if(checked){
+            if(phrasesArr.length >= 3) {
+               $('.alert2 p').html('Please selected max. 3 key words.').closest('.alert2').show();
+               $(this).prop('checked', false);
+            } else {
+               phrasesArr.push(val);
+            }
+         } else {
+            for(var i=0;i<phrasesArr.length;i++){
+               if(phrasesArr[i] === val) {
+                  phrasesArr.splice(i,1);
+               }
+            }
+         }
+      })
+      // 提交
+      $('button.submit').click(function(){
+         // $('.alert1').show();
+         // return;
+         if(!phrasesArr.length){
+            $('.alert2 p').html('There is nothing to submit.').closest('.alert').show();
+            return;
+         }
+         let data = new FormData();
+         data.append('phrases', phrasesArr.join(',') + ',');
+         data.append('userId', userId);
+         $.ajax({
+            url: 'https://wx.sagacn.com/siemensGPBizCon2019/phrase',
+            method: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+               if(res.meta.code === 0){
+                  userInfo.phrases = phrasesArr;
+                  LS.setItem('userInfo', JSON.stringify(userInfo));
+                  $('.alert2 p').html('Submit successfully').closest('.alert').show();
+                  $('button.submit').remove();
+                  $('input[type="checkout"]').attr('disabled', true);
+                  return;
+               }
+               $('.alert2 p').html(res.metaa.message).closest('.alert').show();
+            },
+            error: function (err) {
+               console.log(err);
+            }
+         })
+      })
+      $('.alert button').click(function () {
+         $('.alert').hide();
+         if($(this).closest('.alert').hasClass('alert1')){
+            window.location.href = 'index.html';
+         }
+      })
+   </script>
+</body>
+</html>

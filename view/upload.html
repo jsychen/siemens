@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Upload</title>
+   <link rel="stylesheet" href="css/common.css">
+   <style>
+      body,html{
+         height: 100%;
+      }
+   </style>
+</head>
+<body>
+   <div id="wrapper">
+      <div class="page" id="page">
+         <a class="logo" href="index.html"></a>
+         <div class="slogan">
+            <img src="img/uploadBanner.svg" alt="">
+         </div>
+         <form id="form">
+            <label>Name111:</label>
+            <input type="text" id="userName">
+            <button type="button" id="save"></button>
+         </form>
+         <div class="clipContaner">
+            <div class="file" id="file">
+               <input type="file" accept="camera"/>
+               <span></span>
+            </div>
+            <div class="box" id="box">
+               <img src="" alt="" id="clipImg">
+            </div>
+            <div id="clip">
+               <div id="container"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="alert alert1">
+      <div class="inner">
+         <p>Will open soon</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <div class="alert alert2">
+      <div class="inner">
+         <p>Please enter your name</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+   <script src="js/common.js"></script>
+   <script src="js/clip.js"></script>
+   <script src="js/exif.js"></script>
+   <script type="text/babel">
+   $(function() {
+      // let isIos = _util.checkDeviceType('ios');
+      let agent = navigator.userAgent;
+      let isIos = /(iPhone|iPad|iPod|iOS)/i.test(agent) && !(/(Android)/i.test(agent));
+      if(isIos){
+         $("input[type='file']").attr('accept', 'camera');
+      } else{         
+         $("input[type='file']").attr('accept', 'image/*');
+      }
+      let userInfo = JSON.parse(LS.getItem('userInfo'));
+      var userId = userInfo.id;
+      userInfo.photoLink && $('#box img').attr('src', userInfo.photoLink).parent().show();
+      $('#userName').val(userInfo.userName);
+      var isClip = false,
+         isPreview = false,
+         isUpload = false,
+         clipUrl = '',
+         noScoll = function(evt){
+            this.isClip && evt.preventDefault();
+         },
+         clip = {};
+      
+      $('#file input').change(function (e) {
+         clipImg(e);
+      })
+      $('#save').click(function () {
+         // $('.alert1').show();
+         // return;
+         saveImg();
+      })
+      // 选择图片
+      var file = null;
+      let Orientation = 1;
+      function clipImg (e) {
+         file = e.target.files[0];
+         if(file && file.name){
+            EXIF.getData(file, function() {
+               Orientation = EXIF.getTag(this, 'Orientation');
+               clip = new Clip('container', this, Orientation);
+               clip.init(file);
+               isClip = true;
+               $(".box").hide();
+               document.body.addEventListener('touchmove', noScoll, false);
+            });
+         }
+      }
+      function saveImg(){
+         let userName = $('#userName').val().trim();
+         if(!userName){
+            $('.alert2 p').html('Please enter your name').closest('.alert').show();
+            return;
+         }
+         if(!userInfo.photoLink && !file){
+            $('.alert2 p').html('Please select a picture').closest('.alert').show();
+            return;
+         }
+         if(file && file.name){
+            let clipStart = clip.save();
+            
+            let rotate = Orientation === 6 ? 90 : Orientation === 3 ? 180 : Orientation === 8 ? -90 : 0;
+            isClip = false;
+            let data = {
+               userId: userId,
+               userName: userName,
+               file: file,
+               clipStart: Number(clipStart.toFixed(2)),
+               rotate: rotate
+            };
+            let formData = new FormData();
+            for(let key in data){
+               formData.append(key, data[key]);
+            }
+            commit(formData);
+            return;
+         }
+         let data = {
+            userId: userId,
+            userName: userName
+         };
+         let formData = new FormData();
+         for(let key in data){
+            formData.append(key, data[key]);
+         }
+         commit(formData);
+      }
+      function commit(formData){
+         $.ajax({
+            url: 'https://wx.sagacn.com/siemensGPBizCon2019/postImg',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            type: 'post',
+            dataType: 'json',
+            data: formData,
+            success: function(res){
+               if(res.meta.code === 0){
+                  LS.setItem('userInfo', JSON.stringify(res.data));
+                  $('#clipImg').attr('src', res.data.photoLink);
+                  $('.box,.file').show();
+                  $('canvas').remove();
+                  return;
+               }
+               $('.alert2 p').html(res.meta.message).closest('.alert').show();
+            },
+            error: function (err) {
+               console.error(err);
+            }
+         })
+      }
+      $('.alert button').click(function () {
+         $('.alert').hide();
+         if($(this).hasClass('alert1')){
+            window.location.href = 'index.html';
+         }
+      })
+   })
+   </script>
+   <script type="text/javascript" src="js/util.js"></script>
+   <script type="text/javascript" src="js/preventoverscroll.js"></script>
+   <script type="text/javascript">
+       var list = ['page'];
+       var preventOverScroll = new window.PreventOverScroll({
+           list: list
+       });
+   </script>
+</body>
+</html>

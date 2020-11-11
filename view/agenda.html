@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Agenda</title>
+   <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+   <div id="page">
+      <div class="banner">
+         <img src="img/logo.svg" alt="" class="logo">
+         <div class="slogan">
+            <img src="img/agenda.svg" alt="">
+         </div>
+      </div>
+      <div class="agenda">
+         <ul id="list">
+            <li></li>
+         </ul>
+      </div>
+   </div>
+   <script src="js/common.js"></script>
+   <script>
+      var list = [
+         { time: '08:20', label: 'Gathering at Hotel Lobby and Transfer to SGTC'},
+         { time: '08:30-09:00', label: 'Meeting Walk in' },
+         { time: '09:00-09:05', label: 'Safety First and Kickoff' },
+         { time: '09:05-09:10', label: 'Welcome and Opening' },
+         { time: '09:10-09:30', label: 'Tone from the Top' },
+         { time: '09:30-10:15', label: 'GP China - Building A Stronger Future' },
+         { time: '10:15-10:35', label: 'Coffee Break' },
+         { time: '10:35-11:35', label: 'Adapt and Stabilize' },
+         { time: '11:35-12:20', label: 'Fight to Win and Grow' },
+         { time: '12:20-14:00', label: 'Lunch & Factory Tour' },
+         { time: '14:00-14:30', label: 'Guest Speech - Yixing Mayor' },
+         { time: '14:30-15:15', label: 'Simplify' },
+         { time: '15:15-15:35', label: 'Coffee Break' },
+         { time: '15:35-16:20', label: 'Delight Our Customers' },
+         { time: '16:20-17:05', label: 'Innovate to Create Values' },
+         { time: '17:05-17:35', label: 'Wrap Up' },
+         { time: '17:45-18:15', label: 'Transfer to Dinner Venue' },
+         { time: '18:30-21:00', label: 'Dinner' }
+      ];
+      var str = '';
+      for(var i=0;i<list.length;i++){
+         var item = list[i];
+         str += '<li><em></em><span>' + item.time + '</span><label>'+ item.label +'</label></li>'
+      }
+      var target = document.getElementById('list');
+      target.innerHTML = str;
+   </script>
+</body>
+</html>

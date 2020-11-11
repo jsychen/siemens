@@ -1,0 +1,586 @@
+@font-face {
+  font-family: 'Siemens Sans';
+  src: url('SISAN03.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Siemens Sans';
+  font-size: 1.08rem;
+}
+body,
+html {
+  width: 100%;
+  overflow-x: hidden;
+  border: 0;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+#page {
+  width: 100%;
+  height: 100%;
+}
+img {
+  border: 0;
+}
+ul {
+  list-style: none;
+}
+button,
+input {
+  outline: none;
+}
+header {
+  width: 100%;
+  height: 19.5rem;
+  background-color: #004567;
+  background-image: url(../img/bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-left: 2.375rem;
+  padding-top: 1.9375rem;
+  position: relative;
+}
+header .logo {
+  width: 10rem;
+}
+header .slogan {
+  position: absolute;
+  width: 24.7rem;
+  height: 7.8rem;
+  right: -1px;
+  bottom: 0;
+  transform: translateY(2.6rem);
+  background-image: url(../img/block.svg);
+  background-size: cover;
+}
+header .slogan img {
+  width: 100%;
+}
+.container {
+  width: 100%;
+  margin-top: 3.7rem;
+}
+.container .item {
+  overflow: hidden;
+  clear: both;
+}
+.container .item a {
+  float: right;
+  width: 7rem;
+  height: 6.34rem;
+  background-color: #2EB9BD;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.container .item a:nth-child(1) {
+  margin-left: 0.4rem;
+}
+.container .item a img {
+  width: 100%;
+}
+.container .item:nth-of-type(2) {
+  margin-right: 7.4rem;
+}
+.container .item:nth-of-type(3),
+.container .item:nth-of-type(4) {
+  margin-right: 14.8rem;
+}
+.banner {
+  height: 13.4rem;
+  background: #004567;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.banner .slogan {
+  width: 27rem;
+  height: 8.54rem;
+  background-image: url(../img/block.svg);
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(2.5rem);
+}
+.banner .slogan img {
+  width: 100%;
+}
+.banner .logo {
+  position: absolute;
+  width: 8rem;
+  left: 1rem;
+  top: 1rem;
+}
+.agenda,
+.commit {
+  width: 100%;
+  padding: 2.5rem;
+  padding-right: 0;
+}
+.agenda {
+  padding-left: 2rem;
+}
+.agenda #list {
+  width: 100%;
+  background-image: url(../img/location.svg);
+  background-position: 0 top;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  padding-top: 22px;
+}
+.agenda #list li {
+  overflow: hidden;
+  clear: both;
+  line-height: 4rem;
+  position: relative;
+  padding-left: 2rem;
+}
+.agenda #list li * {
+  float: left;
+}
+.agenda #list li span,
+.agenda #list li label {
+  transform: translateY(-1.5rem);
+}
+.agenda #list li span {
+  color: #01a9ac;
+  padding-right: 1rem;
+  white-space: nowrap;
+}
+.agenda #list li label {
+  color: #434343;
+}
+.agenda #list li em {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  border-left: 0.5px solid rgba(1, 169, 172, 0.5);
+  left: 10px;
+  top: 0;
+}
+.agenda #list li em::before,
+.agenda #list li em::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+}
+.agenda #list li em::before {
+  width: 10px;
+  height: 10px;
+  border: 0.5px solid rgba(1, 169, 172, 0.5);
+  transform: translateX(-6.5px);
+}
+.agenda #list li em::after {
+  width: 4px;
+  height: 4px;
+  left: 0;
+  top: 0;
+  background: #01a9ac;
+  transform: translateX(-2.5px) translateY(4px);
+}
+.agenda #list li:nth-last-of-type(1) em {
+  height: 1.1rem;
+}
+.commit {
+  padding-top: 1rem;
+}
+.commit p {
+  font-size: 1.1rem;
+  line-height: 2rem;
+  color: #01a9ac;
+  padding-right: 1rem;
+}
+button.submit {
+  display: block;
+  width: 12.7rem;
+  height: 3.4rem;
+  background-image: url(../img/block.svg);
+  background-size: cover;
+  border: 0;
+  border-radius: 1.7rem;
+  color: #fff;
+  margin: 2rem auto 0;
+  transform: translateX(-1.25rem);
+  font-size: 1.2rem;
+}
+.commit #list {
+  width: 100%;
+  padding-right: 2.5rem;
+  margin-top: 1rem;
+}
+.commit #list li {
+  padding: 1rem 10px;
+  border-bottom: 1px solid #b4becc;
+}
+.commit #list li:nth-of-type(1) {
+  border-top: 1px solid #b4becc;
+}
+.commit #list li label {
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  display: block;
+  position: relative;
+}
+.commit #list li label span {
+  float: left;
+  color: #434343;
+  line-height: 2rem;
+  font-size: 1.1rem;
+}
+.commit #list li label input {
+  float: right;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.25rem;
+  opacity: 0;
+}
+.commit #list li label input + i {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #01a9ac;
+  border-radius: 2px;
+  position: absolute;
+  right: 1px;
+  top: 0.25rem;
+}
+.commit #list li label input:checked + i:before {
+  position: absolute;
+  content: '';
+  width: 0.4rem;
+  height: 0.8rem;
+  border-right: 2px solid #01a9ac;
+  border-bottom: 2px solid #01a9ac;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.pageprevent_over_scroll_container,
+.page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #004567;
+  background-image: url(../img/bg.svg);
+  background-position: center center;
+  background-size: auto 34rem;
+  background-repeat: no-repeat;
+}
+.pageprevent_over_scroll_container .logo,
+.page .logo {
+  position: fixed;
+  width: 12rem;
+  height: 5.16rem;
+  background-image: url(../img/logo.svg);
+  background-size: cover;
+  left: 2.5rem;
+  top: 1.9rem;
+  z-index: 3;
+}
+.pageprevent_over_scroll_container .slogan,
+.page .slogan {
+  width: 27rem;
+  height: 7.2rem;
+  position: fixed;
+  top: 10rem;
+  left: 50%;
+  margin-left: -13.5rem;
+  background-image: url(../img/block.svg);
+  background-size: cover;
+  z-index: 1;
+}
+.pageprevent_over_scroll_container .slogan img,
+.page .slogan img {
+  width: 100%;
+}
+.pageprevent_over_scroll_container #form,
+.page #form {
+  width: 100%;
+  padding: 0 4rem;
+  overflow: hidden;
+  clear: both;
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  padding-top: 1rem;
+}
+.pageprevent_over_scroll_container #form *,
+.page #form * {
+  float: left;
+  line-height: 2rem;
+}
+.pageprevent_over_scroll_container #form label,
+.page #form label {
+  font-size: 1.8rem;
+  color: #fff;
+}
+.pageprevent_over_scroll_container #form input[type="text"],
+.page #form input[type="text"] {
+  width: 11.2rem;
+  background: none;
+  border: 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 0;
+}
+.pageprevent_over_scroll_container #form button,
+.page #form button {
+  float: right;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-image: url(../img/upload.svg);
+  background-size: cover;
+  border: 0;
+  background-color: transparent;
+  margin-top: -1rem;
+}
+.box {
+  width: 27rem;
+  max-width: 100%;
+  height: 27rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+.box #clipImg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 4;
+}
+.clipContaner {
+  position: fixed;
+  left: 2.5rem;
+  top: 2.5rem;
+  right: 2.5rem;
+  bottom: 7rem;
+  z-index: 2;
+  overflow: hidden;
+}
+.clipContaner .file {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  left: 50%;
+  bottom: 10rem;
+  margin-left: -2.5rem;
+  z-index: 3;
+}
+.clipContaner .file > * {
+  width: 100%;
+  height: 100%;
+}
+.clipContaner .file input {
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+.clipContaner .file span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url(../img/camera.svg);
+  background-size: cover;
+  z-index: 1;
+}
+.clip-img {
+  width: 300px;
+  height: 225px;
+  margin: 20px auto 0;
+  border: 1px solid #999;
+  overflow: hidden;
+}
+.clip-img img {
+  width: 100%;
+}
+.upload-wp {
+  text-align: center;
+  width: 300px;
+  margin: 20px auto 0;
+}
+.upload-wp button {
+  padding: 5px 10px;
+}
+.upload-wp p {
+  word-wrap: break-word;
+  font-size: 12px;
+}
+#clip {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  text-align: center;
+  overflow: hidden;
+}
+#clip #container {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+}
+#clip #image-box {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+}
+#clip #cover-box {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  margin: auto;
+}
+.preview-wp {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+}
+.preview-wp .preview-img {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+}
+#cover-box {
+  width: 100%;
+  height: 100%;
+}
+.wishes {
+  padding: 1rem 2.5rem 2.5rem;
+}
+.wishes textarea {
+  width: 100%;
+  height: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #a8a8a8;
+  background: #fff;
+}
+.wishes p {
+  color: #01a9ac;
+  margin-bottom: 1rem;
+}
+.wishes button {
+  transform: translateX(0);
+  margin-top: 1.5rem;
+}
+.alert {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: none;
+}
+.alert .inner {
+  width: 80%;
+  box-sizing: border-box;
+  background: #fff;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  margin-top: -100px;
+}
+.alert .inner p {
+  padding: 30px;
+  font-size: 1rem;
+  text-align: center;
+}
+.alert .inner button {
+  width: 100%;
+  height: 4rem;
+  font-size: 1.2rem;
+  color: #01a9ac;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+em {
+  font-style: normal;
+}
+.logistic {
+  padding: 0.1rem 2.5rem 0;
+}
+.logistic .map {
+  width: 100%;
+}
+.logistic h2 {
+  color: #004567;
+}
+.logistic p {
+  line-height: 1.6rem;
+  color: #434343;
+}
+.logistic .tel {
+  margin-bottom: 10px;
+}
+.logistic .part {
+  margin: 1rem 0;
+}
+.logistic .part h2,
+.logistic .part p {
+  line-height: 1.8rem;
+}
+.logistic .weather {
+  margin-top: 1rem;
+}
+.logistic .weather ul li {
+  background: #ddeaf6;
+  margin-bottom: 5px;
+  height: 2.66rem;
+  padding-left: 0.5rem;
+}
+.logistic .weather ul li > * {
+  float: left;
+  white-space: nowrap;
+}
+.logistic .weather ul li sup {
+  font-size: 0.8rem;
+}
+.logistic .weather ul li img {
+  height: 1.66rem;
+  margin-top: 0.4rem;
+}
+.logistic .weather ul li span {
+  width: 10rem;
+  height: 2.66rem;
+  line-height: 2.3rem;
+  border-right: 1px solid #000;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+.logistic .weather ul li em {
+  width: 4.6rem;
+  line-height: 2.66rem;
+  text-align: center;
+  font-size: 0.9rem;
+}

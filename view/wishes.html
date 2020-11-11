@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Wishes</title>
+   <link rel="stylesheet" href="css/common.css">
+   <style>
+      body,html{
+         height: 100%;
+         background: #f7f9ff !important;
+      }
+   </style>
+</head>
+<body>
+   <div id="page">
+      <div class="banner">
+         <img src="img/logo.svg" alt="" class="logo">
+         <div class="slogan">
+            <img src="img/wishes.svg" alt="">
+         </div>
+      </div>
+      <div class="wishes">
+         <p>Please leave your best wishes to new GP.</p>
+         <textarea></textarea>
+         <button class="submit" type="button">Submit</button>
+      </div>
+   </div>
+   <div class="alert alert1">
+      <div class="inner">
+         <p>Will open soon</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <div class="alert alert2">
+         <div class="inner">
+            <p>Submit successfully</p>
+            <button type="button">OK</button>
+         </div>
+      </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script>
+
+      $('button.submit').click(function () {
+         // $('.alert').show();
+         // return;
+         handleCommit();
+      })
+      $('.alert button').click(function () {
+         $('.alert').hide();
+         if($(this).closest('.alert').hasClass('alert1')){
+            window.location.href = 'index.html';
+         }
+         
+      })
+      function handleCommit () {
+         var content = $('textarea').val().trim();
+         if(!content){
+            $('.alert2 p').html('There is nothing to submit.').closest('.alert').show();
+            return;
+         }
+         var data = new FormData();
+         var userInfo = JSON.parse(LS.getItem('userInfo'));
+         var userId = userInfo.id;
+         data.append('userId', userId);
+         data.append('content', content);
+         $.ajax({
+            url: 'https://wx.sagacn.com/siemensGPBizCon2019/content',
+            method: 'post',
+            dataType: 'json',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: data,
+            success: function (res) {
+               if(res.meta.code === 0){
+                  $('.alert2 p').html('Submit successfully').closest('.alert').show();
+                  return;
+               }
+               $('.alert2 p').html(res.metaa.message).closest('.alert').show();
+            },
+            error: function (err) {
+               console.error(err);
+            }
+         })
+      }
+   </script>
+</body>
+</html>

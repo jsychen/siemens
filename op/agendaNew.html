@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>空分及齿式压缩机高峰论坛</title>
+   <link rel="stylesheet" href="css/common.css?date=08071846">
+</head>
+<body>
+   <div id="page">
+      <header>
+         <img class="logo" src="images/logo.svg" />
+         <img class="banner" src="images/banner.jpg" />
+         <img class="slogan" src="images/agenda.jpg" />
+      </header>
+      <div class="agenda" id="agenda">
+         <div>
+            <p class="date">2019-08-12</p>
+            <div class="item">
+               <p>08:45 – 09:00</p>
+               <p>自助晚餐</p>
+               <p>Welcome Buffet Dinner</p>
+               <span>全体</span>
+               <span>All</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script src="js/agenda.js"></script>
+   <script>
+      var str = '';
+      for(var i=0;i<list.length;i++){
+         var item = list[i];
+         str += '<div><p class="date">'+ list[i].date +'</p>';
+         var item = '';
+         var agenda = list[i].agenda;
+         for( var j=0;j<agenda.length;j++){
+            item += '<div class="item">';
+            item += '<p class="time">'+ agenda[j].time +'</p>';
+            item += '<p>'+ agenda[j].label +'</p>';
+            item += '<p>'+ agenda[j].labelEn +'</p>';
+            item += '</div>';
+         };
+         
+         str += item + '</div>';
+      }
+      var target = document.getElementById('agenda');
+      target.innerHTML = str;
+   </script>
+</body>
+</html>

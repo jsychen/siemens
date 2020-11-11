@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Go All In</title>
+   <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+   <div id="page">
+      <header>
+         <img class="logo" src="img/logo.svg" alt="logo">
+         <div class="slogan">
+            <img class="date" src="img/slogan.svg" alt="">
+         </div>
+      </header>
+      <div class="container">
+         <div class="item">
+            <a href="https://live.photoplus.cn/activity/live/pc/9011013/#/">
+               <img src="img/icon-3.svg" alt="Event Photo">
+            </a>
+            <a href="upload.html">
+               <img src="img/icon-4.svg" alt="Upload Your Photo">
+            </a>
+         </div>
+         <div class="item">
+            <a href="wishes.html">
+               <img src="img/icon-1.svg" alt="Wishes to GP">
+            </a>
+            <a href="agenda.html">
+               <img src="img/icon-2.svg" alt="Event Agenda">
+            </a>
+         </div>
+         
+         <div class="item">
+            <a href="logistic.html">
+               <img src="img/icon-7.svg" alt="Logistics Info">
+            </a>
+            <a href="commit.html">
+               <img src="img/icon-6.svg" alt="Commit to GP">
+            </a>
+         </div>
+         <div class="item">
+            <a class="comming" href="javascript:;">
+               <img src="img/icon-5.svg" alt="Event Survey">
+            </a>
+         </div>
+         
+      </div>
+   </div>
+   <div class="alert">
+      <div class="inner">
+         <p>Will open soon</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script>
+      function UrlSearch(url) {
+         var str = url; //取得整个地址栏
+         var num = str.indexOf("#");
+         str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+         return str;
+      }
+      // var url = 'http://wx.sagacn.com/siemens/index.html#6';
+      var url = window.location.href;
+      var userId = UrlSearch(url);
+      $(function () {
+         // 获取用户信息
+         getUserInfo();
+         function getUserInfo () {
+            $.ajax({
+               url: 'https://wx.sagacn.com/siemensGPBizCon2019/user?userId=' + userId,
+               method: 'get',
+               dataType: 'json',
+               success: function (res) {
+                  if(res.meta.code === 0){
+                     LS.setItem('userInfo', JSON.stringify(res.data));
+                  }
+               },
+               error: function (err) {
+                  console.error(err);
+               }
+            })
+         }
+         // 敬请期待
+         $('.comming').click(function () {
+            $('.alert').show();
+         })
+         $('.alert button').click(function () {
+            $('.alert').hide();
+         })
+      })
+   </script>
+</body>
+</html>

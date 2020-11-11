@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>SE BCC 2020</title>
+   <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+   <div id="page" class="home_page">
+      <header>
+         <div class="logo">
+            <img src="img/logo.svg" alt="logo">
+         </div>
+         <div class="slogan">
+            <img src="img/slogan.svg" alt="">
+            <img class="date" src="img/slogan-2.svg" alt="">
+         </div>
+      </header>
+      <div class="container">
+         <div class="item">
+            <a href="agenda.html">
+               <img src="img/menu-1.svg" alt="Event program">
+            </a>
+            <a href="logistic.html">
+               <img src="img/menu-2.svg" alt="Logistic infomation">
+            </a>
+            <a href="notes.html">
+               <img src="img/menu-3.svg" alt="EHS notes">
+            </a>
+         </div>
+         <div class="item">
+            <a href="factory.html">
+               <img src="img/menu-4.svg" alt="Factory tour">
+            </a>
+            <a href="javascript:;" class="comming">
+               <img src="img/menu-5.svg" alt="Photo gallery">
+            </a>
+            <a href="javascript:;" class="comming">
+               <img src="img/menu-6.svg" alt="Event feedback">
+            </a>
+         </div>
+      </div>
+   </div>
+   <div class="alert">
+      <div class="inner">
+         <p>Coming soon.</p>
+         <button type="button">OK</button>
+      </div>
+   </div>
+
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script>
+      $(function () {
+         // 敬请期待
+         $('.comming').click(function () {
+            var href = $(this).attr('href');
+            if(href == 'javascript:;') {
+               $(this).addClass('active').siblings().removeClass('active');
+               $('.alert').show();
+            }
+         })
+         $('.alert button').click(function () {
+            $('.active').removeClass('active');
+            $('.alert').hide();
+         })
+      })
+   </script>
+</body>
+</html>
