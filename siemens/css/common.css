@@ -184,6 +184,9 @@ header .slogan .date {
 .agenda #list li:nth-last-of-type(1) em {
   height: 1.1rem;
 }
+.agenda #list li:nth-last-child(2) label {
+  letter-spacing: -0.04rem;
+}
 .logistic {
   padding: 0.1rem 2.5rem 0;
 }
@@ -259,7 +262,8 @@ header .slogan .date {
   margin-bottom: 2rem;
 }
 .factory .img {
-  margin: 2rem 1rem;
+  width: 100%;
+  margin: 2rem 0;
 }
 .alert {
   width: 100%;
