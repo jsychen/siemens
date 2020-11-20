@@ -162,6 +162,9 @@ header .slogan .date {
   color: #434343;
   white-space: nowrap;
 }
+.agenda #list li div label.perpul {
+  color: #5d1e80;
+}
 .agenda #list li em {
   position: absolute;
   width: 2rem;
@@ -184,8 +187,9 @@ header .slogan .date {
 .agenda #list li:nth-last-of-type(1) em {
   height: 1.1rem;
 }
+.agenda #list li:nth-child(1) label,
 .agenda #list li:nth-last-child(2) label {
-  letter-spacing: -0.04rem;
+  letter-spacing: -0.08rem;
 }
 .logistic {
   padding: 0.1rem 2.5rem 0;

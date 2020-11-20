@@ -161,7 +161,7 @@ header{
             color: #434343;
             white-space: nowrap;
             &.perpul{
-               // color: @purple;
+               color: @purple;
             }
          }
       }
@@ -189,8 +189,11 @@ header{
          // border: 0;
          height: 1.1rem;
       }
-      &:nth-last-child(2) label{
-         letter-spacing: -.04rem;
+      
+      &:nth-child(1),&:nth-last-child(2){
+         label{
+            letter-spacing: -.08rem;
+         }
       }
    }
    

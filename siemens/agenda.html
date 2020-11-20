@@ -27,40 +27,58 @@
          <ul id="list">
             <li></li>
          </ul>
-         <p>*The agenda is tentative and subject to further update.</p>
+         <!-- <p>*The agenda is tentative and subject to further update.</p> -->
       </div>
    </div>
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/common.js"></script>
    <script>
+      // var list = [
+      //    { time: '07:45', list: ['Transfer from DoubleTree by Hilton Hotel to SHVC']},
+      //    { time: '08:00-08:30', list: ['Meeting walk-in'] },
+      //    { time: '08:30-08:40', list: ['Welcome and safety moment'] },
+      //    { time: '08:40-09:30', list: ['Opening and tone from top'], flag: true},
+      //    { time: '09:30-10:00', list: ['Group photo and coffee break'] },
+      //    { time: '10:00-11:30', list: ['Session discussion'], flag: true},
+      //    { time: '11:30-13:00', list: ['Lunch and factory tour'] },
+      //    { time: '13:00-13:45', list: ['Guest speech'] },
+      //    { time: '13:45-15:00', list: ['Session discussion'] , flag: true},
+      //    { time: '15:00-16:00', list: ['Session discussion'] , flag: true},
+      //    { time: '16:00-16:20', list: ['Coffee break'] },
+      //    { time: '16:30-17:00', list: ['Dialogue with top management'] },
+      //    { time: '17:00-17:30', list: ['Awarding ceremony'] },
+      //    { time: '17:30-18:00', list: ['Closing'], flag: true},
+      //    { time: '18:00', list: ['Transfer from SHVC to DoubleTree by Hilton Hotel'] },
+      //    { time: '18:45-21:00', list: ['Dinner at hotel'] },
+      // ];
+			
+
       var list = [
-         // { time: '07:30', list: ['Gathering at hotel lobby and transfer to SHVC']},
-         { time: '07:45', list: ['Transport to SHVC']},
+         { time: '07:45', list: ['Transfer from DoubleTree by Hilton Hotel to SHVC']},
          { time: '08:00-08:30', list: ['Meeting walk-in'] },
          { time: '08:30-08:40', list: ['Welcome and safety moment'] },
-         { time: '08:40-09:30', list: ['Opening and tone from top'], flag: true},
-         { time: '09:30-10:00', list: ['Coffee break and group photo'] },
-         { time: '10:00-11:30', list: ['Session discussion'], flag: true},
-         { time: '11:30-13:00', list: ['Lunch and factory tour'] },
+         { time: '08:40-09:30', list: ['Opening and tone from top', 'From Perform to Transform'], flag: true},
+         { time: '09:30-10:00', list: ['Group photo and coffee break'] },
+         { time: '10:00-11:30', list: ['Perform'], flag: true},
+         { time: '11:30-13:00', list: ['Lunch and factory tour'], falg: true },
          { time: '13:00-13:45', list: ['Guest speech'] },
-         { time: '13:45-15:00', list: ['Session discussion'] , flag: true},
-         { time: '15:00-16:00', list: ['Session discussion'] , flag: true},
+         { time: '13:45-15:00', list: ['Transform'] , flag: true},
+         { time: '15:00-16:00', list: ['A journey to success'] , flag: true},
          { time: '16:00-16:20', list: ['Coffee break'] },
          { time: '16:30-17:00', list: ['Dialogue with top management'] },
          { time: '17:00-17:30', list: ['Awarding ceremony'] },
-         { time: '17:30-18:00', list: ['Closing'], flag: true},
-         // { time: '18:00', list: ['End of SEBCC', 'Transport to dinner at hotel'] },
-         { time: '18:00', list: ['Transfer from SHVC to Double Tree by hilton'] },
+         { time: '17:30-18:00', list: ['Closing', 'Let’s energize society'], flag: true},
+         { time: '18:00', list: ['Transfer from SHVC to DoubleTree by Hilton Hotel'] },
          { time: '18:45-21:00', list: ['Dinner at hotel'] },
       ];
       var str = '';
       var length = list.length;
       for(var i=0;i<length;i++){
          var item = list[i];
-         var active = (i == length - 2 || i == 3) ? 1 : 0;
+         // var active = (i == length - 2 || i == 3) ? 1 : 0;
          str += '<li><em></em><span>' + item.time + '</span><div>';
          for(var n=0;n<item.list.length;n++) {
-            var className = (list[i].flag && n == active) ? 'perpul' : '';
+            var className = (list[i].flag && n == item.list.length - 1) ? 'perpul' : '';
             str += '<label class="' + className + '">' + item.list[n] + '</label>';
          }
          str += '</div></li>';
