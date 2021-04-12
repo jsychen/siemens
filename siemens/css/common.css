@@ -346,3 +346,19 @@ header .slogan .date {
 .hide {
   display: none;
 }
+.qrCode {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.qrCode img {
+  width: 14rem;
+}
+.qrCode p {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #999;
+}
