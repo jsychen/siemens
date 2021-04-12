@@ -59,7 +59,7 @@ header{
       margin-top: 2.5rem;
       padding-left: .3rem;
       img:nth-child(1){
-         height: 3.3rem;
+         width: 16rem;
       }
       .date{
          height: 1rem;
@@ -75,11 +75,12 @@ header{
    .item{
       display: flex;
       margin-bottom: 1.5rem;
+      flex-wrap: wrap;
       a{
+         width: calc(33.3% - 1rem);
          display: flex;
          align-items: center;
-         flex: 1;
-         margin: 0 .5rem;
+         margin: 0 .5rem 1rem;
          background-image: url(../img/menu-bg.svg);
          background-size: cover;
          background-repeat: no-repeat;
@@ -118,9 +119,9 @@ header{
       display: flex;
       align-items: center;
       padding-left: 1.5rem;
-      img{
-         height: 1rem;
-      }
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: .2rem;
    }
 }
 .agenda,.commit{
@@ -147,22 +148,28 @@ header{
       line-height: 2rem;
       position: relative;
       padding: 1rem 0 1rem 2rem;
+      &.perpul *{
+         color: @purple !important;
+      }
+      b{
+         font-size: 1.2rem;
+         transform: translateY(-1.3rem);
+         color: @purple;
+      }
       span,div{
          transform: translateY(-1.3rem);
       }
       span{
-         color: @purple;
          min-width: 7.5rem;
+         color: #231815;
       }
       div{
          display: flex;
          flex-direction: column;
          label{
-            color: #434343;
-            white-space: nowrap;
-            &.perpul{
-               color: @purple;
-            }
+            color: #231815;
+            // white-space: nowrap;
+            
          }
       }
       

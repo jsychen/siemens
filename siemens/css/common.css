@@ -61,7 +61,7 @@ header .slogan {
   padding-left: 0.3rem;
 }
 header .slogan img:nth-child(1) {
-  height: 3.3rem;
+  width: 16rem;
 }
 header .slogan .date {
   height: 1rem;
@@ -76,12 +76,13 @@ header .slogan .date {
 .container .item {
   display: flex;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 .container .item a {
+  width: calc(33.3% - 1rem);
   display: flex;
   align-items: center;
-  flex: 1;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 1rem;
   background-image: url(../img/menu-bg.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -116,9 +117,9 @@ header .slogan .date {
   display: flex;
   align-items: center;
   padding-left: 1.5rem;
-}
-.banner .slogan img {
-  height: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
 }
 .agenda,
 .commit {
@@ -146,24 +147,28 @@ header .slogan .date {
   position: relative;
   padding: 1rem 0 1rem 2rem;
 }
+.agenda #list li.perpul * {
+  color: #5d1e80 !important;
+}
+.agenda #list li b {
+  font-size: 1.2rem;
+  transform: translateY(-1.3rem);
+  color: #5d1e80;
+}
 .agenda #list li span,
 .agenda #list li div {
   transform: translateY(-1.3rem);
 }
 .agenda #list li span {
-  color: #5d1e80;
   min-width: 7.5rem;
+  color: #231815;
 }
 .agenda #list li div {
   display: flex;
   flex-direction: column;
 }
 .agenda #list li div label {
-  color: #434343;
-  white-space: nowrap;
-}
-.agenda #list li div label.perpul {
-  color: #5d1e80;
+  color: #231815;
 }
 .agenda #list li em {
   position: absolute;

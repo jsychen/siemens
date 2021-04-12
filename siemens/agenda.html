@@ -19,9 +19,7 @@
          <div class="logo">
             <img src="img/logo.svg" alt="logo">
          </div>
-         <div class="slogan">
-            <img src="img/event_title.svg" alt="">
-         </div>
+         <div class="slogan">会议日程</div>
       </div>
       <div class="agenda">
          <ul id="list">
@@ -33,55 +31,48 @@
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/common.js"></script>
    <script>
-      // var list = [
-      //    { time: '07:45', list: ['Transfer from DoubleTree by Hilton Hotel to SHVC']},
-      //    { time: '08:00-08:30', list: ['Meeting walk-in'] },
-      //    { time: '08:30-08:40', list: ['Welcome and safety moment'] },
-      //    { time: '08:40-09:30', list: ['Opening and tone from top'], flag: true},
-      //    { time: '09:30-10:00', list: ['Group photo and coffee break'] },
-      //    { time: '10:00-11:30', list: ['Session discussion'], flag: true},
-      //    { time: '11:30-13:00', list: ['Lunch and factory tour'] },
-      //    { time: '13:00-13:45', list: ['Guest speech'] },
-      //    { time: '13:45-15:00', list: ['Session discussion'] , flag: true},
-      //    { time: '15:00-16:00', list: ['Session discussion'] , flag: true},
-      //    { time: '16:00-16:20', list: ['Coffee break'] },
-      //    { time: '16:30-17:00', list: ['Dialogue with top management'] },
-      //    { time: '17:00-17:30', list: ['Awarding ceremony'] },
-      //    { time: '17:30-18:00', list: ['Closing'], flag: true},
-      //    { time: '18:00', list: ['Transfer from SHVC to DoubleTree by Hilton Hotel'] },
-      //    { time: '18:45-21:00', list: ['Dinner at hotel'] },
-      // ];
-			
-
       var list = [
-         { time: '07:45', list: ['Transfer from DoubleTree by Hilton Hotel to SHVC']},
-         { time: '08:00-08:30', list: ['Meeting walk-in'] },
-         { time: '08:30-08:40', list: ['Welcome and safety moment'] },
-         { time: '08:40-09:30', list: ['Opening and tone from top', 'From Perform to Transform'], flag: true},
-         { time: '09:30-10:00', list: ['Group photo and coffee break'] },
-         { time: '10:00-11:30', list: ['Perform'], flag: true},
-         { time: '11:30-13:00', list: ['Lunch and factory tour'], falg: true },
-         { time: '13:00-13:45', list: ['Guest speech'] },
-         { time: '13:45-15:00', list: ['Transform'] , flag: true},
-         { time: '15:00-16:00', list: ['A journey to success'] , flag: true},
-         { time: '16:00-16:20', list: ['Coffee break'] },
-         { time: '16:30-17:00', list: ['Dialogue with top management'] },
-         { time: '17:00-17:30', list: ['Awarding ceremony'] },
-         { time: '17:30-18:00', list: ['Closing', 'Let’s energize society'], flag: true},
-         { time: '18:00', list: ['Transfer from SHVC to DoubleTree by Hilton Hotel'] },
-         { time: '18:45-21:00', list: ['Dinner at hotel'] },
+         { date: '5月26日' },
+         { time: '16:00 - 21:30', list: ['会议签到']},
+         { time: '18:30 - 21:00', list: ['自助晚餐（可选）'] },
+         { date: '5月27日' },
+         { time: '08:25 - 08:30', list: ['安全须知及会议开场'] },
+         { time: '08:30 – 08:50', list: ['欢迎致辞']},
+         { time: '08:50 – 09:10', list: ['西门子能源的成立与工业应用集团介绍'] },
+         { time: '09:10 – 09:25', list: ['西门子能源New Unit']},
+         { time: '09:25 – 09:40', list: ['西门子能源New Energy Business'] },
+         { time: '09:40 – 09:55', list: ['西门子能源数字化解决方案'] },
+         { time: '09:55 – 10:10', list: ['西门子能源I SV业务介绍+Highlight+新方向/技术'] },
+         { time: '10:10 – 10:30', list: ['茶歇和集体照'] , flag: true},
+         { time: '10:30 – 10:50', list: ['西门子能源创新服务'] },
+         { time: '10:50 – 11:10', list: ['西门子能源定制化服务'] },
+         { time: '11:10 – 12:00', list: ['客户分享'] },
+         { time: '12:00 – 13:30', list: ['午餐'], flag: true},
+         { time: '13:30 – 15:00', list: ['主题1：压缩机服务（含往复式压缩机服务）', '主题2：航改型燃气轮机'] },
+         { time: '15:00 – 15:30', list: ['茶歇'], falg: true },
+         { time: '15:30 – 17:00', list: ['主题1：工业蒸汽透平服务', '主题2：工业型燃气轮机服务'] },
+         { time: '18:30 – 21:00', list: ['晚宴（本地餐厅）'], falg: true },
+         { date: '5月28日' },
+         { time: '08:00 -12:00', list: ['海滨拓展活动'] },
+         { time: '12:00 -13:45', list: ['午餐和送机'] }
+
+
       ];
       var str = '';
       var length = list.length;
       for(var i=0;i<length;i++){
          var item = list[i];
-         // var active = (i == length - 2 || i == 3) ? 1 : 0;
-         str += '<li><em></em><span>' + item.time + '</span><div>';
-         for(var n=0;n<item.list.length;n++) {
-            var className = (list[i].flag && n == item.list.length - 1) ? 'perpul' : '';
-            str += '<label class="' + className + '">' + item.list[n] + '</label>';
+         var className = item.flag ? 'perpul' : '';
+         str += '<li class="' + className + '"><em></em>';
+         if(item.date) {
+            str += '<b>' + item.date + '</b></li>';
+         } else {
+            str += '<span>' + item.time + '</span><div>';
+            for(var n=0;n<item.list.length;n++) {
+               str += '<label>' + item.list[n] + '</label>';
+            }
+            str += '</div></li>';
          }
-         str += '</div></li>';
       }
       var target = document.getElementById('list');
       target.innerHTML = str;
