@@ -130,7 +130,7 @@
                     alert('手机号格式不正确');
                     return;
                 }
-                var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)*@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
                 if(item[0] == 'email' && !emailReg.test(item[1])){
                     alert('邮箱格式不正确');
                     return;
