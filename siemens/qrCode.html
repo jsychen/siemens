@@ -23,11 +23,42 @@
             <div class="slogan">扫码签到</div>
         </div>
         <div class="qrCode">
-            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.99114.com%2Fgroup1%2FM00%2FBC%2FBC%2FwKgGTFVD_XeANy19AAAIgDqJIBs311_230_230.gif&refer=http%3A%2F%2Fimg1.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620815766&t=7e0ed138a04cb1dc1926a6d54d1a1b19" alt="">
+            <img id="img" src="" alt="">
             <p>感谢注册西门子能源工业应用服务大会<br>现场向工作人员出示此二维码完成签到</p>
         </div>
    </div>
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/common.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+   <script>
+       var timer = null;
+       var arr = location.search.split('?id=');
+       var src = 'https://siemens0412.oss-cn-shanghai.aliyuncs.com/'+ arr[1] +'.png';
+       document.getElementById('img').src = src;
+
+        getStatus();
+        function getStatus() {
+            axios({
+                method: 'get',
+                url: 'https://s.evtape.com/s/sign?id=' + arr[1],
+            }).then(function(res){
+                if(res.data.meta.code != 0) {
+                    timer = setTimeout(function(){
+                        getStatus();
+                    }, 3000);
+                } else {
+                    clearInterval(timer);
+                    timer = null;
+                    location.href = 'index.html';
+                }
+            }); 
+        }
+
+        window.onunload = function() {
+            clearInterval(timer);
+            timer = null;
+        }
+   </script>
 </body>
 </html>
