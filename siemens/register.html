@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>会议注册</title>
+   <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+   <div id="page">
+      <div class="banner">
+         <div class="logo">
+            <img src="img/logo.svg" alt="logo">
+         </div>
+         <div class="slogan">会议注册</div>
+      </div>
+      <form name="registerForm">
+          <div class="item">
+              <label class="required">姓名</label>
+              <input type="text" name="userName"/>
+          </div>
+          <div class="item">
+            <label class="required">公司</label>
+            <input type="text" name="company"/>
+        </div>
+        <div class="item">
+            <label class="required">职位</label>
+            <input type="text" name="position"/>
+        </div>
+        <div class="item">
+            <label class="required">手机号</label>
+            <input type="text" name="phone"/>
+        </div>
+        <div class="item">
+            <label class="required">邮箱</label>
+            <input type="text" name="email"/>
+        </div>
+        <div class="item">
+            <label>西门子能源邀请人</label>
+            <input type="text" name="inviter"/>
+        </div>
+        <div class="item">
+            <label class="required">5月26日抵达并参加酒店晚宴</label>
+            <select name="dinner">
+                <option>是</option>
+                <option>否</option>
+            </select>
+        </div>
+        <div class="item">
+            <label class="required">5月27日两轮分论坛主题选择</label>
+            <div class="item">
+                <span>第一轮：13:30-15:00</span>
+                <select name="firstTopic">
+                    <option>主题1：压缩机服务(含往复式压缩机服务)</option>
+                    <option>主题2：航改型燃气轮机</option>
+                </select>
+            </div>
+            <div class="item">
+                <span>第二轮：15:30-17:00</span>
+                <select name="firstTopic">
+                    <option>主题1：工业蒸汽透平服务</option>
+                    <option>主题2：工业型燃气轮机服务</option>
+                </select>
+            </div>
+            <div class="item">
+                <label class="required">5月28日上午参加海滨拓展活动</label>
+                <select name="activity">
+                    <option>是</option>
+                    <option>否</option>
+                </select>
+            </div>
+            <div class="item">
+                <label class="required">5月28日参加午餐</label>
+                <select name="lunch">
+                    <option>是</option>
+                    <option>否</option>
+                </select>
+            </div>
+            <div class="item">
+                <label class="required">服装号码</label>
+                <select name="lunch">
+                    <option>S(体重范围 160/80A)</option>
+                    <option>M(体重范围 165/84A)</option>
+                    <option>L(体重范围 170/88A)</option>
+                    <option>XL(体重范围 175/92A)</option>
+                    <option>XXL(体重范围 180/96A)</option>
+                    <option>XXXL(体重范围 185/100A)</option>
+                </select>
+            </div>
+            <div class="item">
+                <label>如需要接送机，请选择：</label>
+                <div class="item">
+                    <span>5月26日 北海福成机场 - 北海香格里拉大酒店</span>
+                    <select name="pickerup">
+                        <option>无</option>
+                        <option>13:30</option>
+                        <option>17:30</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <span>5月28日 北海香格里拉大酒店 - 北海福成机场</span>
+                    <select name="delivery">
+                        <option>无</option>
+                        <option>14:00</option>
+                    </select>
+                </div>
+                <button type="button">提交</button>
+            </div>
+        </div>
+      </form>
+   </div>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   <script src="js/common.js"></script>
+   <script>
+      
+   </script>
+</body>
+</html>

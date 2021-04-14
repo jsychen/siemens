@@ -46,6 +46,7 @@ ul{
 }
 button, input{
    outline: none;
+   border: 0;
 }
 
 header{
@@ -242,28 +243,6 @@ header{
    }
 }
 
-// factory
-.blocks{
-   padding: 2rem;
-   .item{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      img{
-         width: 2.5rem;
-      }
-      span{
-         color: #434343;
-      }
-      &:nth-child(1){
-         margin-bottom: 2rem;
-      }
-   }
-}
-.factory .img{
-   width: 100%;
-   margin: 2rem 0;
-}
 // 弹框提示
 .alert{
    width: 100%;
@@ -300,18 +279,6 @@ header{
       }
    }
 }
-.notes,.factory{
-   p{
-      display: flex;
-      margin-top: .5rem;
-      span{
-         margin-right: .5rem;
-      }
-      label{
-         flex: 1;
-      }
-   }
-}
 .model{
    position: fixed;
    left: 0;
@@ -330,6 +297,8 @@ header{
 .hide{
    display: none;
 }
+
+// 二维码页面
 .qrCode{
    flex: 1;
    display: flex;
@@ -344,5 +313,46 @@ header{
       margin-top: 2rem;
       text-align: center;
       color: #999;
+   }
+}
+
+[name="registerForm"]{
+   padding: 1.5rem;
+   .item{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+      label{
+         margin-bottom: .5rem;
+         font-weight: 500;
+         &.required::after{
+            content: '*';
+            color: #7600FF;
+         }
+      }
+      input{
+         padding: .5rem;
+         background: #F3F3F3;
+      }
+      select{
+         -webkit-appearance:none;
+         appearance:none;
+         outline: none;
+         padding: .5rem;
+         border: 1px solid #e5e5e5;
+         background: #fff;
+      }
+      span{
+         margin-bottom: .5rem;
+      }
+   }
+   button{
+      width: 8rem;
+      height: 2.4rem;
+      background: #8000DA;
+      border-radius: .8rem;
+      margin: 2rem auto 0;
+      color: #fff;
+      font-size: 1.2rem;
    }
 }
