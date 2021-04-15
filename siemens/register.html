@@ -33,7 +33,7 @@
             <input type="text" name="phone" value=""/>
         </div>
         <div class="item">
-            <label class="required">邮箱</label>
+            <label>邮箱</label>
             <input type="text" name="email" value=""/>
         </div>
         <div class="item">
@@ -80,13 +80,12 @@
             <div class="item">
                 <label class="required">服装号码</label>
                 <select name="size">
-                    <option>XS(160/76A)</option>
-                    <option>S(165/80A)</option>
-                    <option>M(170/84A)</option>
-                    <option>L(175/88A)</option>
-                    <option>XL(180/92A)</option>
-                    <option>2XL(185/96A)</option>
-                    <option>3XL(190/100A)</option>
+                    <option>S(160)</option>
+                    <option>M(170)</option>
+                    <option>L(175)</option>
+                    <option>XL(180)</option>
+                    <option>XXL(185)</option>
+                    <option>XXXL(190)</option>
                 </select>
             </div>
             <div class="item">
@@ -118,21 +117,21 @@
        function handleCommit() {
             var formData = new FormData(document.getElementsByTagName('form')[0]);
             var entries = formData.entries();
-            var keys = ['name', 'company', 'position', 'phone', 'email'];
+            var keys = ['name', 'company', 'position', 'phone'];
             
             for(var item of entries) {
-                console.log(keys.includes(item[0]),!item[1].trim());
-                if(keys.includes(item[0]) && !item[1].trim()) {
+                var val = item[1].trim();
+                if(keys.includes(item[0]) && !val) {
                     alert('请将表单填写完整');
                     return;
                 }
                 var phoneReg = /^(1[3|4|5|6|7|8|9][0-9]{9})$/;
-                if(item[0] == 'phone' && !phoneReg.test(item[1])){
+                if(item[0] == 'phone' && !phoneReg.test(val)){
                     alert('手机号格式不正确');
                     return;
                 }
                 var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)*@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-                if(item[0] == 'email' && !emailReg.test(item[1])){
+                if(item[0] == 'email' && val && !emailReg.test(val)){
                     alert('邮箱格式不正确');
                     return;
                 }
