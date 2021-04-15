@@ -27,6 +27,9 @@
            padding: 0 0.5rem;
            margin-bottom: 1rem;
        }
+       .item * {
+           font-size: 1.1rem;
+       }
        .item-header {
            height: 3rem;
            background-color: #05093b;
@@ -36,7 +39,7 @@
            border-bottom: 1px #5d1e80 solid;
        }
        .time {
-           width: 8.5rem;
+           width: 7.5rem;
            flex-grow: 0;
        }
 
@@ -45,12 +48,15 @@
        }
 
        .meetingroom {
-           width: 4rem;
+           width: 3.5rem;
            flex-grow: 0;
        }
 
        .map {
            width: 100%;
+       }
+       .floor{
+           width: 3rem;
        }
    </style>
 </head>
@@ -82,48 +88,59 @@
               <div class="item item-header">
                   <div class="time">时间</div>
                   <div class="content">内容</div>
+                  <div class="floor">楼层</div>
                   <div class="meetingroom">会议室</div>
               </div>
               <div class="item item-border">
                   <div class="time">08:25 - 12:00</div>
                   <div class="content">主旨会议</div>
+                  <div class="floor"></div>
                   <div class="meetingroom">南宁厅</div>
               </div>
               <div class="item">
                   <div class="time">13:30 - 15:00</div>
                   <div class="content">分组讨论</div>
+                  <div class="floor"></div>
                   <div class="meetingroom"></div>
               </div>
 
               <div class="item">
                   <div class="time"></div>
                   <div class="content">主题1：压缩机服务</div>
+                  <div class="floor">2层</div>
                   <div class="meetingroom">南宁厅</div>
               </div>
               <div class="item item-border">
                   <div class="time"></div>
                   <div class="content">主题2：航改燃气轮机</div>
+                  <div class="floor">2层</div>
                   <div class="meetingroom">桂林厅</div>
               </div>
 
               <div class="item">
                   <div class="time">15:30 - 17:00</div>
                   <div class="content">分组讨论</div>
+                  <div class="floor"></div>
                   <div class="meetingroom"></div>
               </div>
               <div class="item">
                   <div class="time"></div>
                   <div class="content">主题1：工业蒸汽透平服务</div>
+                  <div class="floor">2层</div>
                   <div class="meetingroom">南宁厅</div>
               </div>
               <div class="item item-border">
                   <div class="time"></div>
                   <div class="content">主题2：工业型燃气轮机服务</div>
+                  <div class="floor">2层</div>
                   <div class="meetingroom">桂林厅</div>
               </div>
           </div>
 
-        <img src="./img/map-2.svg" alt="" class="map">
+          <div class="part">
+              <h2>会议楼层平面图</h2>
+                <img src="./img/map-2.svg" alt="" class="map">
+          </div>
 
       </div>
 
