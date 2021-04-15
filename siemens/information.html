@@ -1,151 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>会议信息</title>
-   <link rel="stylesheet" href="css/common.css">
-   <style>
-       .schedule {
-           padding: 1rem;
-       }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会议信息</title>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .schedule {
+            padding: 1rem;
+        }
 
-       .sub-tit {
-           line-height: 3rem;
-           font-size: 1.2rem;
-       }
+        .sub-tit {
+            line-height: 3rem;
+            font-size: 1.2rem;
+        }
 
-       .date {
-           margin: 1.2rem 0;
-       }
+        .date {
+            margin: 1.2rem 0;
+        }
 
-       .item {
-           display: flex;
-           align-items: center;
-           height: 3.5rem;
-           padding: 0 0.5rem;
-           margin-bottom: 1rem;
-       }
-       .item * {
-           font-size: 1.1rem;
-       }
-       .item-header {
-           height: 3rem;
-           background-color: #05093b;
-           color: #fff;
-       }
-       .item-border {
-           border-bottom: 1px #5d1e80 solid;
-       }
-       .time {
-           width: 7.5rem;
-           flex-grow: 0;
-       }
+        .item {
+            display: flex;
+            align-items: center;
+            height: 3.5rem;
+            padding: 0 0.5rem;
+            margin-bottom: 1rem;
+        }
 
-       .content {
+        .item * {
+            font-size: 1.1rem;
+        }
+
+        .item-header {
+            height: 3rem;
+            background-color: #05093b;
+            color: #fff;
+        }
+
+        .item-border {
+            border-bottom: 1px #5d1e80 solid;
+        }
+
+        .time {
+            width: 7.5rem;
+            flex-grow: 0;
+        }
+
+        .content {
             flex-grow: 1;
-       }
+        }
 
-       .meetingroom {
-           width: 3.5rem;
-           flex-grow: 0;
-       }
+        .meetingroom {
+            width: 3.5rem;
+            flex-grow: 0;
+        }
 
-       .map {
-           width: 100%;
-       }
-       .floor{
-           width: 3rem;
-       }
-   </style>
+        .map {
+            width: 100%;
+        }
+
+        .floor {
+            width: 3rem;
+        }
+    </style>
 </head>
+
 <body>
-   <div id="page">
+    <div id="page">
         <div class="banner">
             <div class="logo">
-                <img src="img/logo.svg" alt="logo" >
+                <img src="img/logo.svg" alt="logo">
             </div>
-            <div class="slogan">会议信息</div>
+            <div class="slogan">酒店信息</div>
         </div>
 
         <div class="logistic">
             <div class="part">
-                <h2>酒店信息：</h2>
+                <!-- <h2>酒店信息：</h2> -->
                 <p>北海香格里拉大酒店</p>
                 <p>广西省北海市海城区茶亭路33号</p>
                 <p>电话：(86 779) 206 2288</p>
             </div>
             <div class="part">
-                <img src="img/map.png" alt="">
+                <img src="img/map.jpg" alt="地图">
             </div>
-      </div>
+        </div>
 
-      <div class="logistic schedule">
-          <h2 class="sub-tit">会议安排：</h2>
-          <p class="date">5月27日</p>
-          <div class="list">
-              <div class="item item-header">
-                  <div class="time">时间</div>
-                  <div class="content">内容</div>
-                  <div class="floor">楼层</div>
-                  <div class="meetingroom">会议室</div>
-              </div>
-              <div class="item item-border">
-                  <div class="time">08:25 - 12:00</div>
-                  <div class="content">主旨会议</div>
-                  <div class="floor"></div>
-                  <div class="meetingroom">南宁厅</div>
-              </div>
-              <div class="item">
-                  <div class="time">13:30 - 15:00</div>
-                  <div class="content">分组讨论</div>
-                  <div class="floor"></div>
-                  <div class="meetingroom"></div>
-              </div>
+        <div class="logistic schedule">
+            <h2 class="sub-tit">会议安排：</h2>
+            <p class="date">5月27日</p>
+            <div class="list">
+                <div class="item item-header">
+                    <div class="time">时间</div>
+                    <div class="content">内容</div>
+                    <div class="floor">楼层</div>
+                    <div class="meetingroom">会议室</div>
+                </div>
+                <div class="item item-border">
+                    <div class="time">08:25 - 12:00</div>
+                    <div class="content">主旨会议</div>
+                    <div class="floor"></div>
+                    <div class="meetingroom">南宁厅</div>
+                </div>
+                <div class="item">
+                    <div class="time">13:30 - 15:00</div>
+                    <div class="content">分组讨论</div>
+                    <div class="floor"></div>
+                    <div class="meetingroom"></div>
+                </div>
 
-              <div class="item">
-                  <div class="time"></div>
-                  <div class="content">主题1：压缩机服务</div>
-                  <div class="floor">2层</div>
-                  <div class="meetingroom">南宁厅</div>
-              </div>
-              <div class="item item-border">
-                  <div class="time"></div>
-                  <div class="content">主题2：航改燃气轮机</div>
-                  <div class="floor">2层</div>
-                  <div class="meetingroom">桂林厅</div>
-              </div>
+                <div class="item">
+                    <div class="time"></div>
+                    <div class="content">主题1：压缩机服务</div>
+                    <div class="floor">2层</div>
+                    <div class="meetingroom">南宁厅</div>
+                </div>
+                <div class="item item-border">
+                    <div class="time"></div>
+                    <div class="content">主题2：航改燃气轮机</div>
+                    <div class="floor">2层</div>
+                    <div class="meetingroom">桂林厅</div>
+                </div>
 
-              <div class="item">
-                  <div class="time">15:30 - 17:00</div>
-                  <div class="content">分组讨论</div>
-                  <div class="floor"></div>
-                  <div class="meetingroom"></div>
-              </div>
-              <div class="item">
-                  <div class="time"></div>
-                  <div class="content">主题1：工业蒸汽透平服务</div>
-                  <div class="floor">2层</div>
-                  <div class="meetingroom">南宁厅</div>
-              </div>
-              <div class="item item-border">
-                  <div class="time"></div>
-                  <div class="content">主题2：工业型燃气轮机服务</div>
-                  <div class="floor">2层</div>
-                  <div class="meetingroom">桂林厅</div>
-              </div>
-          </div>
+                <div class="item">
+                    <div class="time">15:30 - 17:00</div>
+                    <div class="content">分组讨论</div>
+                    <div class="floor"></div>
+                    <div class="meetingroom"></div>
+                </div>
+                <div class="item">
+                    <div class="time"></div>
+                    <div class="content">主题1：工业蒸汽透平服务</div>
+                    <div class="floor">2层</div>
+                    <div class="meetingroom">南宁厅</div>
+                </div>
+                <div class="item item-border">
+                    <div class="time"></div>
+                    <div class="content">主题2：工业型燃气轮机服务</div>
+                    <div class="floor">2层</div>
+                    <div class="meetingroom">桂林厅</div>
+                </div>
+            </div>
 
-          <div class="part">
-              <h2>会议楼层平面图</h2>
-                <img src="./img/map-2.svg" alt="" class="map">
-          </div>
+            <div class="part">
+                <h2>会议楼层平面图</h2>
+                <img src="./img/map-2.svg" alt="" class="会议楼层平面图">
+            </div>
+            <div class="part">
+                <h2>餐厅楼层平面图</h2>
+                <img src="./img/map-3.svg" alt="" class="餐厅楼层平面图">
+            </div>
 
-      </div>
+        </div>
 
-   </div>
-   <script src="js/jquery-1.11.3.min.js"></script>
-   <script src="js/common.js"></script>
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/common.js"></script>
 </body>
+
 </html>
