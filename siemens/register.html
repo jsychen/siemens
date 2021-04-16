@@ -18,29 +18,29 @@
       <form name="registerForm">
           <div class="item">
               <label class="required">姓名(中文)</label>
-              <input type="text" name="name" value=""/>
+              <input type="text" name="name" value="" autocapitalize="none"/>
           </div>
           <div class="item">
             <label class="required">公司</label>
-            <input type="text" name="company" value=""/>
+            <input type="text" name="company" value="" autocapitalize="none"/>
         </div>
         <div class="item">
             <label class="required">职位</label>
-            <input type="text" name="position" value=""/>
+            <input type="text" name="position" value="" autocapitalize="none"/>
         </div>
         <div class="item">
             <label class="required">手机号</label>
-            <input type="text" name="phone" value=""/>
+            <input type="text" name="phone" value="" autocapitalize="none"/>
         </div>
         <div class="item">
             <label>邮箱</label>
-            <input type="text" name="email" value=""/>
+            <input type="text" name="email" value="" autocapitalize="none"/>
         </div>
         <div class="item">
             <label>西门子能源邀请人</label>
-            <input type="text" name="inviter"/>
+            <input type="text" name="inviter" autocapitalize="none"/>
         </div>
-        <div class="item">
+        <div class="item select-item">
             <label class="required">5月26日抵达并参加酒店晚宴</label>
             <select name="dinner">
                 <option>是</option>
@@ -49,35 +49,35 @@
         </div>
         <div class="item">
             <label class="required">5月27日两轮分论坛主题选择</label>
-            <div class="item">
+            <div class="item select-item">
                 <span>第一轮：13:30-15:00</span>
                 <select name="firstTopic">
                     <option>主题1：压缩机服务(含往复式压缩机服务)</option>
                     <option>主题2：航改型燃气轮机</option>
                 </select>
             </div>
-            <div class="item">
+            <div class="item select-item">
                 <span>第二轮：15:30-17:00</span>
                 <select name="secondTopic">
                     <option>主题1：工业蒸汽透平服务</option>
                     <option>主题2：工业型燃气轮机服务</option>
                 </select>
             </div>
-            <div class="item">
+            <div class="item select-item">
                 <label class="required">5月28日上午参加团建活动</label>
                 <select name="activity">
                     <option>是</option>
                     <option>否</option>
                 </select>
             </div>
-            <div class="item">
+            <div class="item select-item">
                 <label class="required">5月28日参加午餐</label>
                 <select name="lunch">
                     <option>是</option>
                     <option>否</option>
                 </select>
             </div>
-            <div class="item">
+            <div class="item select-item">
                 <label class="required">服装号码</label>
                 <select name="size">
                     <option>S(160)</option>
@@ -90,7 +90,7 @@
             </div>
             <div class="item">
                 <label>如需要接送机，请选择：</label>
-                <div class="item">
+                <div class="item select-item">
                     <span>5月26日 北海福成机场 - 北海香格里拉大酒店</span>
                     <select name="pickup">
                         <option>无需接机</option>
@@ -98,7 +98,7 @@
                         <option>17:30</option>
                     </select>
                 </div>
-                <div class="item">
+                <div class="item select-item">
                     <span>5月28日 北海香格里拉大酒店 - 北海福成机场</span>
                     <select name="delivery">
                         <option>无需送机</option>
@@ -110,6 +110,13 @@
         </div>
       </form>
    </div>
+
+   <div class="alert">
+    <div class="inner">
+       <p id="msg">敬请期待</p>
+       <button type="button">确定</button>
+    </div>
+ </div>
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/common.js"></script>
    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -122,17 +129,23 @@
             for(var item of entries) {
                 var val = item[1].trim();
                 if(keys.includes(item[0]) && !val) {
-                    alert('请将表单填写完整');
+                    showAlert('请将表单填写完整');
+                    return;
+                }
+                var nameReg = /^[\u4e00-\u9fa5]{0,}$/;
+                if(item[0] == 'name' && !nameReg.test(val)) {
+                    showAlert('姓名格式不正确');
                     return;
                 }
                 var phoneReg = /^(1[3|4|5|6|7|8|9][0-9]{9})$/;
                 if(item[0] == 'phone' && !phoneReg.test(val)){
-                    alert('手机号格式不正确');
+                    showAlert('手机号格式不正确');
                     return;
                 }
-                var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)*@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                // var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)*@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                var emailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if(item[0] == 'email' && val && !emailReg.test(val)){
-                    alert('邮箱格式不正确');
+                    showAlert('邮箱格式不正确');
                     return;
                 }
             }
@@ -142,13 +155,20 @@
                 data: formData
             }).then(function(res){
                 if(res.data.meta.code != 0) {
-                    alert(res.data.meta.message);
+                    showAlert(res.data.meta.message);
                 } else {
-                    alert('注册成功');
+                    showAlert('注册成功');
                     location.href = 'index.html';
                 }
             })
         }
+
+        function showAlert(msg) {
+            $('#msg').html(msg).closest('.alert').show();
+        }
+        $('.alert button').click(function() {
+            $('.alert').hide();
+        })
    </script>
 </body>
 </html>
