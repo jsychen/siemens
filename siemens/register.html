@@ -41,7 +41,7 @@
             <input type="text" name="inviter" autocapitalize="none"/>
         </div>
         <div class="item select-item">
-            <label class="required">5月26日抵达并参加酒店晚宴</label>
+            <label class="required">5月26日酒店自助晚宴</label>
             <select name="dinner">
                 <option>是</option>
                 <option>否</option>
@@ -53,7 +53,7 @@
                 <span>第一轮：13:30-15:00</span>
                 <select name="firstTopic">
                     <option>主题1：压缩机服务(含往复式压缩机服务)</option>
-                    <option>主题2：航改型燃气轮机</option>
+                    <option>主题2：航改型燃气轮机服务</option>
                 </select>
             </div>
             <div class="item select-item">
@@ -143,12 +143,7 @@
                     showAlert('手机号格式不正确');
                     return;
                 }
-                // var emailReg = /^([a-zA-Z]|[0-9])(\w|\-)*@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-                var emailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if(item[0] == 'email' && val && !emailReg.test(val)){
-                    showAlert('邮箱格式不正确');
-                    return;
-                }
+
             }
             axios({
                 method: 'post',
