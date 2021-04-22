@@ -232,6 +232,9 @@ header .slogan .date {
 .logistic .part img {
   width: 100%;
 }
+.logistic .part b {
+  color: #000;
+}
 .alert {
   width: 100%;
   height: 100%;
