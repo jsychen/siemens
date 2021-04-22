@@ -355,3 +355,9 @@ header .slogan .date {
   background-image: url(../img/arrow_down.svg);
   background-size: 1rem 1rem;
 }
+.part.booking {
+  padding-bottom: 2rem;
+}
+.part.booking a {
+  font-size: 1.6rem;
+}
