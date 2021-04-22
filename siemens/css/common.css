@@ -359,5 +359,11 @@ header .slogan .date {
   background-size: 1rem 1rem;
 }
 .part.booking a {
-  font-size: 1.6rem;
+  display: block;
+  width: 8rem;
+  line-height: 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  color: #fff;
+  background: #5d1e80;
 }
