@@ -42,9 +42,9 @@
         </div>
         <div class="item select-item">
             <label class="required">5月26日酒店自助晚宴</label>
-            <select name="dinner">
-                <option>是</option>
-                <option>否</option>
+            <select name="dinner" onchange="onChange(event)">
+                <option value="1">是</option>
+                <option value="2">否</option>
             </select>
         </div>
         <div class="item">
@@ -105,7 +105,7 @@
                         <option>14:00</option>
                     </select>
                 </div>
-                <button type="button" onclick="handleCommit()">提交</button>
+                <button class="submit" type="button" onclick="handleCommit()">提交</button>
             </div>
         </div>
       </form>
@@ -114,7 +114,7 @@
    <div class="alert">
     <div class="inner">
        <p id="msg">敬请期待</p>
-       <button type="button" onclick="nextStep()">确定</button>
+       <button type="button">确定</button>
     </div>
  </div>
    <script src="js/jquery-1.11.3.min.js"></script>
@@ -145,12 +145,14 @@
                 }
 
             }
+            $('.submit').attr('disabled', true);
             axios({
                 method: 'post',
                 url: 'https://s.evtape.com/s/register', 
                 data: formData
             }).then(function(res){
                 if(res.data.meta.code != 0) {
+                    $('.submit').removeAttr('disabled');
                     showAlert(res.data.meta.message);
                 } else {
                     showAlert('注册成功');
@@ -168,6 +170,16 @@
                 location.href = 'index.html';
             }
         })
+
+        function onChange(e) {
+            if(e.target.value == 2) {
+                var flag = confirm('确定选择否吗？')
+            }
+            console.log(flag);
+            if(!flag) {
+                $('[name="dinner"]').val('1')
+            }
+        }
    </script>
 </body>
 </html>
