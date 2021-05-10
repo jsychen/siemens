@@ -369,3 +369,13 @@ header .slogan .date {
   color: #fff;
   background: #5d1e80;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 2rem;
+  transform: scale(.7);
+}
