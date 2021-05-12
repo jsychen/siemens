@@ -35,10 +35,7 @@ body,html{
    width: 100vw;
    height: 100vh;
    background-color: #1A1535;
-   background-image: url(../img/cover.png);
-   background-size: 80% auto;
-   background-position: center bottom;
-   background-repeat: no-repeat;
+   
 }
 img{
    border: 0;
@@ -83,6 +80,8 @@ header{
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
       a{
+         position: relative;
+         z-index: 5;
          width: calc(33.3% - 1rem);
          display: flex;
          align-items: center;
@@ -389,8 +388,25 @@ header{
 }
 .footer{
    position: fixed;
-   bottom: 0;
-   left: 0;
+   bottom: 1.5rem;
+   left: 2.9rem;
    right: 0;
-   color: #fff;
+   span{
+      color: #fff;
+      display: block;
+      transform: scale(.7);
+      transform-origin: left center;
+   }
+}
+.index-bg{
+   width: 80%;
+   height: 20rem;
+   position: absolute;
+   left: 10%;
+   bottom: 3rem;
+   background-image: url(../img/cover.png);
+   background-size: 100% auto;
+   background-position: center bottom;
+   background-repeat: no-repeat;
+   z-index: 1;
 }

@@ -35,10 +35,6 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: #1A1535;
-  background-image: url(../img/cover.png);
-  background-size: 80% auto;
-  background-position: center bottom;
-  background-repeat: no-repeat;
 }
 img {
   border: 0;
@@ -85,6 +81,8 @@ header .slogan .date {
   flex-wrap: wrap;
 }
 .container .item a {
+  position: relative;
+  z-index: 5;
   width: calc(33.3% - 1rem);
   display: flex;
   align-items: center;
@@ -371,11 +369,25 @@ header .slogan .date {
 }
 .footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 1.5rem;
+  left: 2.9rem;
   right: 0;
+}
+.footer span {
   color: #fff;
-  text-align: center;
-  line-height: 2rem;
-  transform: scale(.7);
+  display: block;
+  transform: scale(0.7);
+  transform-origin: left center;
+}
+.index-bg {
+  width: 80%;
+  height: 20rem;
+  position: absolute;
+  left: 10%;
+  bottom: 3rem;
+  background-image: url(../img/cover.png);
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
 }

@@ -42,7 +42,7 @@
         </div>
         <div class="item select-item">
             <label class="required">5月26日酒店自助晚宴</label>
-            <select name="dinner" onchange="onChange(event)">
+            <select name="dinner">
                 <option>是</option>
                 <option>否</option>
             </select>
@@ -170,16 +170,6 @@
                 location.href = 'index.html';
             }
         })
-
-        function onChange(e) {
-            if(e.target.value == 2) {
-                var flag = confirm('确定选择否吗？')
-            }
-            console.log(flag);
-            if(!flag) {
-                $('[name="dinner"]').val('1')
-            }
-        }
    </script>
 </body>
 </html>
