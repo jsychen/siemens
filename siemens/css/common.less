@@ -149,26 +149,39 @@ header{
    background-repeat: no-repeat;
    padding-top: 1.2rem;
    li{
-      display: flex;
-      line-height: 2rem;
       position: relative;
       padding: 1rem 0 1rem 2rem;
-      &.perpul *{
-         color: @purple !important;
+      .panel{
+         display: flex;
+         line-height: 2rem;
+         span,div{
+            transform: translateY(-1.3rem);
+         }
+      }
+      .children {
+         transform: translateY(-1.2rem);
+         p{
+            height: 2rem;
+            display: flex;
+            align-items: center;
+         }
+      }
+      &.perpul{
+         .panel span,.list label:nth-child(1){
+            color: @purple !important;
+         }
       }
       b{
          font-size: 1.2rem;
          transform: translateY(-1.3rem);
          color: @purple;
       }
-      span,div{
-         transform: translateY(-1.3rem);
-      }
+      
       span{
          min-width: 7.5rem;
          color: #231815;
       }
-      div{
+      .list{
          display: flex;
          flex-direction: column;
          label{
@@ -201,14 +214,7 @@ header{
          // border: 0;
          height: 1.1rem;
       }
-      
-      &:nth-child(1),&:nth-last-child(2){
-         label{
-            letter-spacing: -.08rem;
-         }
-      }
    }
-   
 }
 
 .logistic{

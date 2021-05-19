@@ -146,12 +146,27 @@ header .slogan .date {
   padding-top: 1.2rem;
 }
 .agenda #list li {
-  display: flex;
-  line-height: 2rem;
   position: relative;
   padding: 1rem 0 1rem 2rem;
 }
-.agenda #list li.perpul * {
+.agenda #list li .panel {
+  display: flex;
+  line-height: 2rem;
+}
+.agenda #list li .panel span,
+.agenda #list li .panel div {
+  transform: translateY(-1.3rem);
+}
+.agenda #list li .children {
+  transform: translateY(-1.2rem);
+}
+.agenda #list li .children p {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+.agenda #list li.perpul .panel span,
+.agenda #list li.perpul .list label:nth-child(1) {
   color: #5d1e80 !important;
 }
 .agenda #list li b {
@@ -159,19 +174,15 @@ header .slogan .date {
   transform: translateY(-1.3rem);
   color: #5d1e80;
 }
-.agenda #list li span,
-.agenda #list li div {
-  transform: translateY(-1.3rem);
-}
 .agenda #list li span {
   min-width: 7.5rem;
   color: #231815;
 }
-.agenda #list li div {
+.agenda #list li .list {
   display: flex;
   flex-direction: column;
 }
-.agenda #list li div label {
+.agenda #list li .list label {
   color: #231815;
 }
 .agenda #list li em {
@@ -195,10 +206,6 @@ header .slogan .date {
 }
 .agenda #list li:nth-last-of-type(1) em {
   height: 1.1rem;
-}
-.agenda #list li:nth-child(1) label,
-.agenda #list li:nth-last-child(2) label {
-  letter-spacing: -0.08rem;
 }
 .logistic {
   padding: 1rem;
