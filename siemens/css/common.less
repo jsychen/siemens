@@ -136,7 +136,7 @@ header{
 }
 @purple:#5d1e80;
 .agenda{
-   padding-left: 2.1rem;
+   padding-left: 1.6rem;
    >p{
       color: #424242;
    }
@@ -164,6 +164,19 @@ header{
             height: 2rem;
             display: flex;
             align-items: center;
+            label:not(.bold){
+               display: flex;
+               align-items: center;
+               white-space: nowrap;
+               &::before{
+                  content: ' ';
+                  width: 4px;
+                  height: 4px;
+                  border-radius: 2px;
+                  background: #231815;
+                  margin-right: 5px;
+               }
+            }
          }
       }
       &.perpul{

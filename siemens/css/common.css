@@ -132,7 +132,7 @@ header .slogan .date {
   padding-right: 0;
 }
 .agenda {
-  padding-left: 2.1rem;
+  padding-left: 1.6rem;
 }
 .agenda > p {
   color: #424242;
@@ -164,6 +164,19 @@ header .slogan .date {
   height: 2rem;
   display: flex;
   align-items: center;
+}
+.agenda #list li .children p label:not(.bold) {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.agenda #list li .children p label:not(.bold)::before {
+  content: ' ';
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #231815;
+  margin-right: 5px;
 }
 .agenda #list li.perpul .panel span,
 .agenda #list li.perpul .list label:nth-child(1) {
