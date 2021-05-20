@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
@@ -7,6 +8,7 @@
    <title>赋能社会 源动未来</title>
    <link rel="stylesheet" href="css/common.css">
 </head>
+
 <body>
    <div id="page" class="home_page">
       <header>
@@ -22,7 +24,7 @@
             <a href="register.html">
                <img src="img/menu-1.svg" alt="会议注册">
             </a>
-            
+
             <a href="booking.html">
                <img src="img/menu-3.svg" alt="酒店预订">
             </a>
@@ -32,10 +34,10 @@
             <a class="comming" href="javascript:;">
                <img src="img/menu-2.svg" alt="会议日程">
             </a>
-            <a class="comming" href="javascript:;">
+            <a class="comming photo" href="javascript:;">
                <img src="img/menu-4.svg" alt="会议照片">
             </a>
-            <a class="comming" href="javascript:;">
+            <a class="comming questionnaire" href="javascript:;">
                <img src="img/menu-5.svg" alt="反馈问卷">
             </a>
             <div class="index-bg"></div>
@@ -54,10 +56,14 @@
 
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/common.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script>
       $(function () {
-         // 问卷调查 20号08:45开： https://www.wjx.cn/jq/97311498.aspx
-         // 
+         // 问卷调查 27号12:00开，https://www.wjx.cn/vj/m4hpSrX.aspx
+         // 会议照片 26号16:00开，https://live.photoplus.cn/live/69449017
+
+         menuInit();
+
          // 敬请期待
          $('.comming').click(function () {
             $(this).addClass('active');
@@ -67,7 +73,21 @@
             $('.active').removeClass('active');
             $('.alert').hide();
          })
-      })
+
+         function menuInit() {
+            var date = new Date();
+            var date1 = new Date('2021/5/26 16:00');
+            var date2 = new Date('2021/5/27 12:00');
+            if (date >= date1) {
+               $('.photo').removeClass('comming').attr('href', 'https://live.photoplus.cn/live/69449017');
+            }
+            if (date >= date2) {
+               $('.questionnaire').removeClass('comming').attr('href', 'https://www.wjx.cn/vj/m4hpSrX.aspx');
+            }
+         }
+
+       })
    </script>
 </body>
+
 </html>

@@ -11,6 +11,9 @@
          /* background-image: url(img/2.png); */
          background-size: 100% auto;
       }
+      .bold{
+         font-weight: bold;
+      }
    </style>
 </head>
 <body>
@@ -33,44 +36,43 @@
    <script>
 
       var list = [
-         { time: '08:45 – 08:50', list: ['会议开场']},
+         { time: '08:45 – 08:50', list: ['安全须知及会议开场']},
          { time: '08:50 – 09:00', list: ['欢迎致辞'] },
          { time: '09:00 – 09:20', list: ['推动工业企业能源转型，迈向可持续发展的未来'] },
          { time: '09:20 – 09:40', list: ['助力提效减排，加速低碳变革', '西门子能源燃气轮机业务介绍'] },
          { time: '09:40 – 09:55', list: ['全球脱碳与氢能未来', '新能源事业部Power-to-X 解决方案'] },
          { time: '09:55 – 10:10', list: ['西门子能源数字化服务解决方案'] },
          { time: '10:10– 10:25', list: ['持续提升，做能源服务引领者', '能源工业应用服务概览'] },
-         { time: '10:25 – 10:45', list: ['茶歇和集体照'] },
+         { time: '10:25 – 10:45', list: ['茶歇，集体照'] },
          { time: '10:45 – 11:20', list: ['以客户为中心，打造定制化服务方案'] },
-         { time: '11:20 – 11:30', list: ['客户经验分享'] },
-         { time: '11:30-12:15', list: ['携手共赢可持续能源的未来', '合作伙伴座谈'] },
-         { time: '12:15 – 14:00', list: ['午餐'] },
-         { time: '14:00 – 15:30', list: ['分论坛R1'], flag: true, children: [
-            { time: ' ', label: 'Topic1：压缩机服务' },
+         { time: '11:20 - 12:00', list: ['携手共赢可持续能源的未来', '合作伙伴座谈'] },
+         { time: '12:15 – 14:00', list: ['自助午餐'] },
+         { time: '14:00 – 15:30', list: ['主题分论坛第一轮'], flag: true, children: [
+            { time: ' ', label: 'Topic 1: 航改型燃气轮机服务', bold: true },
+            { time: '14:00 - 14:20', label: 'SGT-A35产品及服务介绍' },
+            { time: '14:20 - 14:40', label: '集成动力系统解决方案' },
+            { time: '14:40 - 15:00', label: 'SGT-A05产品及服务介绍' },
+            { time: '15:00 - 15:30', label: '交流与讨论' },
+            { time: ' ', label: 'Topic 2: 压缩机服务', bold: true },
             { time: '14:00 - 14:20', label: '西门子能源压缩机升级改造及新技术分享' },
             { time: '14:20 - 14:40', label: '往复机维保理念及服务推介' },
             { time: '14:40 - 15:00', label: '葫芦岛维修中心介绍' },
             { time: '15:00 - 15:30', label: '交流与讨论' },
-            { time: ' ', label: 'Topic 2：航改型燃气轮机服务' },
-            { time: '14:00 - 14:20', label: 'SGT-A35产品及服务介绍' },
-            { time: '14:20 - 14:40', label: '集成动力系统解决方案' },
-            { time: '14:40 - 15:00', label: 'SGT-A05产品及服务方案' },
-            { time: '15:00 - 15:30', label: '交流与讨论' },
          ]},
-         { time: '15:30 - 16:00', list: ['茶歇'] },
-         { time: '16:00 - 17:30', list: ['分论坛R2'], flag: true, children: [
-            { time: ' ', label: 'Topic 1：工业蒸汽透平服务' },
+         { time: '15:30 - 16:00', list: ['茶歇 / 团建队长briefing'] },
+         { time: '16:00 - 17:30', list: ['主题分论坛第二轮'], flag: true, children: [
+            { time: ' ', label: 'Topic 1：工业蒸汽透平服务', bold: true },
             { time: '16:00 - 16:20', label: '汽轮机维保理念及服务推介' },
             { time: '16:20 - 16:40', label: '汽轮机改造新技术及案例分享' },
             { time: '16:40 - 17:00', label: '本地现场服务能力介绍' },
             { time: '17:00 - 17:30', label: '交流与讨论' },
-            { time: ' ', label: 'Topic 2: 工业型燃气轮机服务' },
+            { time: ' ', label: 'Topic 2: 工业型燃气轮机服务', bold: true },
             { time: '16:00 - 16:20', label: '工业燃气轮机服务模式' },
             { time: '16:20 - 16:40', label: '燃气轮机现场服务和培训中心介绍' },
             { time: '16:40 - 17:00', label: '可持续发展之路' },
             { time: '17:00 - 17:30', label: '交流与讨论' },
          ]},
-         { time: '18:30 – 21:00', list: ['晚餐'] }
+         // { time: '18:30 – 21:00', list: ['晚餐'] }
       ];
       var str = '';
       var length = list.length;
@@ -87,7 +89,8 @@
             str += '<div class="children">'
             for(var m=0;m<item.children.length;m++) {
                var child = item.children[m];
-               str += '<p><span>' + child.time + '</span><label>'+ child.label +'</label></p>'
+               // str += '<p><span>' + child.time + '</span><label>'+ child.label +'</label></p>'
+               str += '<p><span> </span><label class="' + (child.bold ? 'bold' : '') +'">'+ child.label +'</label></p>'
             }
             str += '</div>'
          }
