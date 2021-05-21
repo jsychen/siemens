@@ -34,10 +34,10 @@
             <a class="comming" href="javascript:;">
                <img src="img/menu-2.svg" alt="会议日程">
             </a>
-            <a class="comming photo" href="javascript:;">
+            <a class="photo" href="javascript:;">
                <img src="img/menu-4.svg" alt="会议照片">
             </a>
-            <a class="comming questionnaire" href="javascript:;">
+            <a class="questionnaire" href="javascript:;">
                <img src="img/menu-5.svg" alt="反馈问卷">
             </a>
             <div class="index-bg"></div>
@@ -80,9 +80,13 @@
             var date2 = new Date('2021/5/27 12:00');
             if (date >= date1) {
                $('.photo').removeClass('comming').attr('href', 'https://live.photoplus.cn/live/69449017');
+            } else {
+               $('.photo').addClass('comming');
             }
             if (date >= date2) {
                $('.questionnaire').removeClass('comming').attr('href', 'https://www.wjx.cn/vj/m4hpSrX.aspx');
+            } else {
+               $('.questionnaire').addClass('comming');
             }
          }
 
