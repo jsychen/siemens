@@ -36,6 +36,10 @@
    <script>
 
       var list = [
+         { date: '5月26日' },
+         { time: '全天', list: ['抵达，签到']},
+         { time: '18:00 - 21:00', list: ['客户晚餐'] },
+         { date: '5月27日' },
          { time: '08:45 – 08:50', list: ['安全须知及会议开场']},
          { time: '08:50 – 09:00', list: ['欢迎致辞'] },
          { time: '09:00 – 09:20', list: ['推动工业企业能源转型，迈向可持续发展的未来'] },
@@ -73,6 +77,11 @@
             { time: '16:40 - 17:00', label: '可持续发展之路' },
             { time: '17:00 - 17:30', label: '交流与讨论' },
          ]},
+         { date: '5月28日' },
+         { time: '08:00 - 11:30', list: ['交流活动']},
+         { time: '12:00 - 13:30', list: ['自助午餐'] },
+         { time: '13:45', list: ['送机'] },
+
          // { time: '18:30 – 21:00', list: ['晚餐'] }
       ];
       var str = '';
@@ -81,19 +90,23 @@
          var item = list[i];
          var className = item.flag ? 'perpul' : '';
          str += '<li class="' + className + '"><em></em>';
-         str += '<div class="panel"><span>' + item.time + '</span><div class="list">';
-         for(var n=0;n<item.list.length;n++) {
-            str += '<label>' + item.list[n] + '</label>';
-         }
-         str += '</div></div>';
-         if(item.children) {
-            str += '<div class="children">'
-            for(var m=0;m<item.children.length;m++) {
-               var child = item.children[m];
-               // str += '<p><span>' + child.time + '</span><label>'+ child.label +'</label></p>'
-               str += '<p><span> </span><label class="' + (child.bold ? 'bold' : '') +'">'+ child.label +'</label></p>'
+         if(item.date) {
+            str += '<b>' + item.date + '</b>'
+         } else {
+            str += '<div class="panel"><span>' + item.time + '</span><div class="list">';
+            for(var n=0;n<item.list.length;n++) {
+               str += '<label>' + item.list[n] + '</label>';
             }
-            str += '</div>'
+            str += '</div></div>';
+            if(item.children) {
+               str += '<div class="children">'
+               for(var m=0;m<item.children.length;m++) {
+                  var child = item.children[m];
+                  // str += '<p><span>' + child.time + '</span><label>'+ child.label +'</label></p>'
+                  str += '<p><span> </span><label class="' + (child.bold ? 'bold' : '') +'">'+ child.label +'</label></p>'
+               }
+               str += '</div>'
+            }
          }
          str += '</li>';
       }

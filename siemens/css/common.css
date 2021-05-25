@@ -183,6 +183,7 @@ header .slogan .date {
   color: #5d1e80 !important;
 }
 .agenda #list li b {
+  display: block;
   font-size: 1.2rem;
   transform: translateY(-1.3rem);
   color: #5d1e80;
